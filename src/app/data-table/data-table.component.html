@@ -1,0 +1,47 @@
+<div style="background-color:rgb(190, 207, 238); width: 100%; height: 100vh;">
+  <div class="container" align="center" style="background-color:white; border-radius: 16px; padding: 8px;">
+    <div>
+      <h2>User List</h2>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr align="center">
+          <th style="padding: 8px;">Index</th>
+          <!--<th style="padding: 8px;">ID</th>-->
+          <th style="padding: 8px;">Photo</th>
+          <th style="padding: 8px;">First Name</th>
+          <th style="padding: 8px;">Last Name</th>
+          <th style="padding: 8px;">Email</th>
+          <th style="padding: 8px;" colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tr align="center" *ngFor="let user of usersList | paginate: {
+        itemsPerPage : 5,
+        currentPage: page,
+        totalItems: usersList.length
+      }, let i = index">
+        <td style="padding: 8px;">{{i+1}}</td>
+        <!--<td style="padding: 8px;">{{user.id}}</td>-->
+        <td style="padding: 8px;"><a href="{{user.picture}}" target="_blank"><img src="{{user.picture}}"
+              style=" height: 72px; width: 72px; border-radius: 50%;" alt="picture"></a></td>
+        <td style="padding: 8px; text-transform: capitalize;">{{user.firstName}}</td>
+        <td style="padding: 8px; text-transform: capitalize;">{{user.lastName}}</td>
+        <td style="padding: 8px;">{{user.email}}</td>
+
+        <!--
+        <td style="padding: 8px;"><button class="btn btn-warning" (click)="gotoUpdateForm(user.id)">Edit</button></td>
+        <td style="padding: 8px;"><button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button></td>
+        -->
+        <td style="padding: 8px;"><i class="bi bi-pencil-square"
+            style="font-size: 2rem; color: cornflowerblue; cursor: pointer;" (click)="gotoUpdateForm(user.id)"></i></td>
+        <td style="padding: 8px;"><i class="bi bi-trash"
+            style="font-size: 2rem; color: cornflowerblue; cursor: pointer;" (click)="deleteUser(user.id)"></i></td>
+      </tr>
+    </table>
+    <div>
+      <pagination-controls (pageChange)="onPageChange($event)">
+
+      </pagination-controls>
+    </div>
+  </div>
+</div>

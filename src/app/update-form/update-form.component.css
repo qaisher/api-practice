@@ -1,3 +1,8 @@
 *{
     font-family: 'Courier New', Courier, monospace;
 }
+
+
+  .labelText{
+    font-weight: bold;
+  }

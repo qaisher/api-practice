@@ -1,0 +1,93 @@
+<div style="background-color:rgb(190, 207, 238); width: 100%; height: 100%;">
+  <div class="container" style="background-color:white; border-radius: 16px; padding: 16px; width: 60%;">
+
+      <h1 align="center" style="text-decoration: underline;">Create User Form</h1>
+      <form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="row mb-12 mx-auto">
+          <p><span style="color: red;">*</span> Required Fields</p>
+        </div>
+        <div class="row mb-2 mx-auto">
+          <div class="form-group col-md-4  mb-2">
+            <label class="labelText">Title</label>
+            <select class="form-select required" formControlName="title">
+              <option value="">Title</option>
+              <option value="mr">Mr</option>
+              <option value="ms">Ms</option>
+              <option value="mrs">Mrs</option>
+              <option value="miss">Miss</option>
+              <option value="dr">Dr</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4 mb-2">
+            <label class="labelText"><span style="color: red;">*</span> First Name</label>
+            <input type="text" required class="form-control" formControlName="firstName"
+              [class.is-invalid]="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">
+              <small class="text-danger" [class.d-none]="userForm.get('firstName')?.valid || userForm.get('firstName')?.untouched">*Required</small>
+          </div>
+
+          <div class="form-group col-md-4 mb-2">
+            <label class="labelText"><span style="color: red;">*</span> Last Name</label><br>
+            <input type="text" required class="form-control" formControlName="lastName"
+              [class.is-invalid]="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched">
+              <small class="text-danger" [class.d-none]="userForm.get('lastName')?.valid || userForm.get('lastName')?.untouched">*Required</small>
+          </div>
+        </div>
+        <div class="row mb-2 mx-auto">
+          <div class="form-group col-md-6 mb-2">
+            <label class="labelText">Gender</label><br>
+            <input type="radio" formControlName="gender" value="male"> Male
+            <input type="radio" formControlName="gender" value="female" style="margin-left: 1rem;"> Female
+            <input type="radio" formControlName="gender" value="others" style="margin-left: 1rem;"> Others
+          </div>
+          <div class="form-group col-md-6 mb-2">
+            <label class="labelText">Date of Birth</label>
+            <input type="text" class="form-control input-with-post-icon datepicker" formControlName="dateOfBirth" placeholder="yyyy-mm-dd">
+            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+          </div>
+        </div>
+        <div class="row mb-2 mx-auto">
+          <div class="form-group col-md-6 mb-2">
+            <label class="labelText"><span style="color: red;">*</span> Email</label>
+            <input type="text" required class="form-control" formControlName="email"
+              [class.is-invalid]="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+              <small class="text-danger" [class.d-none]="userForm.get('email')?.valid || userForm.get('email')?.untouched">*Required</small>
+          </div>
+          <div class="form-group col-md-6 mb-2">
+            <label class="labelText">Phone</label>
+            <input type="text" class="form-control" formControlName="phone">
+          </div>
+        </div>
+        <div class="row mb-2 mx-auto">
+          <div class="form-group col-md-12 mb-2">
+            <label class="labelText">Picture (url)</label>
+            <input type="text" class="form-control" formControlName="picture">
+          </div>
+        </div>
+        <div formGroupName="address">
+          <div class="row mb-2 mx-auto">
+            <div class="form-group col-md-6 mb-2">
+              <label class="labelText">Street</label>
+              <input type="text" class="form-control" formControlName="street">
+            </div>
+            <div class="form-group col-md-6 mb-2">
+              <label class="labelText">City</label>
+              <input type="text" class="form-control" formControlName="city">
+            </div>
+          </div>
+          <div class="row mb-2 mx-auto">
+            <div class="form-group col-md-6 mb-2">
+              <label class="labelText">State</label>
+              <input type="text" class="form-control" formControlName="state">
+            </div>
+            <div class="form-group col-md-6 mb-2">
+              <label class="labelText">Country</label>
+              <input type="text" class="form-control" formControlName="country">
+            </div>
+          </div>
+        </div>
+        <div class="mx-auto" align="center">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="userForm.invalid">Submit</button>
+        </div>
+      </form>
+  </div>
+</div>
