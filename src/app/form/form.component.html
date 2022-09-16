@@ -1,5 +1,5 @@
-<div style="background-color:rgb(190, 207, 238); width: 100%; height: 100%;">
-  <div class="container" style="background-color:white; border-radius: 16px; padding: 16px; width: 60%;">
+<div style="background-color:rgb(229, 235, 252); width: 100%; height: 100%;">
+  <div class="container" style="background-color:white; border-radius: 16px; padding: 16px; width: 60%; box-shadow: 0px 8px 10px 5px rgb(180, 181, 182);">
 
       <h1 align="center" style="text-decoration: underline;">Create User Form</h1>
       <form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
@@ -58,9 +58,12 @@
           </div>
         </div>
         <div class="row mb-2 mx-auto">
-          <div class="form-group col-md-12 mb-2">
+          <div class="form-group col-md-10 mb-2">
             <label class="labelText">Picture (url)</label>
             <input type="text" class="form-control" formControlName="picture">
+          </div>
+          <div class="col-md-2 mb-2">
+            <img src="{{userForm.value.picture}}" alt="profile picture" style="height: 64px; width: 64px; border-radius: 50%;">
           </div>
         </div>
         <div formGroupName="address">
@@ -85,9 +88,16 @@
             </div>
           </div>
         </div>
+        <!--
+        <input type="file" (change)="handleFileSelect($event)"/><br>
+        <button type="button" (click) = "uploadAPI()">Upload</button>
+        -->
         <div class="mx-auto" align="center">
           <button type="submit" class="btn btn-primary btn-block" [disabled]="userForm.invalid">Submit</button>
         </div>
       </form>
+      
+      
+      
   </div>
 </div>

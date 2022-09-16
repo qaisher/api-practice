@@ -37,8 +37,8 @@ editForm = this.fb.group({
   autoFillForm(userId: any){
     this.apiService.getUserDataById(userId)
     .subscribe(data => {
-      console.log((data));
-  
+      const dob: string = (String(Object.values(data)[7]).split('T')[0]);
+      
       this.editForm.setValue({
         id: String(Object.values(data)[0]),
         title : String(Object.values(data)[1]),
@@ -46,7 +46,7 @@ editForm = this.fb.group({
         lastName: String(Object.values(data)[3]),
         gender: String(Object.values(data)[5]),
         email : String(Object.values(data)[6]),
-        dateOfBirth: String(Object.values(data)[7]),
+        dateOfBirth: dob,
         phone: String(Object.values(data)[8]),
         picture: String(Object.values(data)[4]),
         address: {

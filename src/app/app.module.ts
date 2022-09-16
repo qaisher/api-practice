@@ -13,6 +13,8 @@ import { CommonInterceptor } from './common.interceptor';
 import { AddUserErrorComponent } from './add-user-error/add-user-error.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { ToastrModule } from 'ngx-toastr';
+import {} from '@angular/material';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
     DataTableComponent,
     FormComponent,
     AddUserErrorComponent,
-    UpdateFormComponent
+    UpdateFormComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgxPaginationModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+
     ToastrModule.forRoot({
       timeOut: 1000,
       progressBar: true,

@@ -52,6 +52,20 @@ export class ApiServiceService {
     return this.http.put<User[]>(`https://dummyapi.io/data/v1/user/${userId}`, body);
   }
 
+
+
+
+  // uploadImage(base64textString: any){
+  //   const myParams = new HttpParams()
+  //   .set('key', '6d207e02198a847aa98d0a2a901485a5')
+  //   .set('action', 'upload')
+  //   .set('source', base64textString)
+  //   .set('format', 'json');
+
+  //   console.log(base64textString);
+  //   return this.http.post<any>('https://freeimage.host/api/1/upload', null);
+  // }
+
 }
 
 
